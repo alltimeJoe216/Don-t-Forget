@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="upB-Pu-htX">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Folder Detail View Controller-->
+        <scene sceneID="0Lo-oO-J1y">
+            <objects>
+                <viewController id="ymv-Z3-G71" customClass="FolderDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0UM-77-aXA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="phv-dE-ySg">
+                                <rect key="frame" x="20" y="57" width="374" height="458"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="beq-g7-iBQ">
+                                    <size key="itemSize" width="374" height="175"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reminderCell" id="0mi-5e-IKR" customClass="ReminderFolderCollectionViewCell" customModule="Dont_Forget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qcv-5V-MRh">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="175"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="374" height="175"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="nbS-oY-Tzq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ON-eS-Ub3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="-537"/>
+        </scene>
+        <!--HomeVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" title="HomeVC" id="BYZ-38-t0r" customClass="HomeViewController" customModule="Dont_Forget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gci-0P-gQV">
+                                <rect key="frame" x="20" y="82" width="335" height="221"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="221" id="knx-Ys-hBN"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeTVC" rowHeight="59" id="nLk-uP-DJX" customClass="ReminderFolderTableViewCell" customModule="Dont_Forget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="335" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nLk-uP-DJX" id="lkV-6n-orr">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YaE-Rt-n6f">
+                                <rect key="frame" x="20" y="376" width="335" height="271"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Oc-DN-nxI">
+                                    <size key="itemSize" width="330" height="89"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="reminderFolderCell" id="4mC-eg-1IF" customClass="ReminderFolderCollectionViewCell" customModule="Dont_Forget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="89"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rES-m2-cWT">
+                                            <rect key="frame" x="0.0" y="0.0" width="330" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qR-zL-1VR">
+                                                    <rect key="frame" x="8" y="61" width="314" height="20"/>
+                                                    <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyB-vk-ZOH">
+                                                    <rect key="frame" x="8" y="8" width="314" height="21"/>
+                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6qR-zL-1VR" firstAttribute="width" secondItem="xyB-vk-ZOH" secondAttribute="width" id="5FD-Yw-ggb"/>
+                                                <constraint firstAttribute="trailing" secondItem="xyB-vk-ZOH" secondAttribute="trailing" constant="8" id="Czu-Pe-bmp"/>
+                                                <constraint firstItem="xyB-vk-ZOH" firstAttribute="centerX" secondItem="rES-m2-cWT" secondAttribute="centerX" id="FHR-Zl-qT8"/>
+                                                <constraint firstItem="6qR-zL-1VR" firstAttribute="centerX" secondItem="rES-m2-cWT" secondAttribute="centerX" id="S67-Hl-pcu"/>
+                                                <constraint firstItem="6qR-zL-1VR" firstAttribute="height" secondItem="xyB-vk-ZOH" secondAttribute="height" multiplier="0.96" id="VIw-6J-yJU"/>
+                                                <constraint firstItem="xyB-vk-ZOH" firstAttribute="top" secondItem="rES-m2-cWT" secondAttribute="top" constant="8" id="gQ8-K2-5jj"/>
+                                                <constraint firstAttribute="bottom" secondItem="6qR-zL-1VR" secondAttribute="bottom" constant="8" id="lSC-7o-EbE"/>
+                                                <constraint firstItem="xyB-vk-ZOH" firstAttribute="leading" secondItem="rES-m2-cWT" secondAttribute="leading" constant="8" id="mdj-PD-QUU"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="330" height="89"/>
+                                        <connections>
+                                            <outlet property="countLabel" destination="6qR-zL-1VR" id="Sct-aW-jh2"/>
+                                            <outlet property="sectionNameLabel" destination="xyB-vk-ZOH" id="0Xk-lf-5xv"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqt-No-xkP">
+                                <rect key="frame" x="245.5" y="17" width="109.5" height="45"/>
+                                <color key="backgroundColor" red="0.18919816610000001" green="0.57586914300000003" blue="0.59214568140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Add reminder"/>
+                                <connections>
+                                    <segue destination="n7b-d9-GfB" kind="show" id="vxE-rG-N8h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLm-9S-P7v">
+                                <rect key="frame" x="245.5" y="311" width="109.5" height="45"/>
+                                <color key="backgroundColor" red="0.18919816610000001" green="0.57586914300000003" blue="0.59214568140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Add section"/>
+                                <connections>
+                                    <action selector="addSectionButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hWo-Ja-X5d"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Sections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9c-sr-eTF">
+                                <rect key="frame" x="20" y="315" width="145" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="Car-E7-92i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBZ-Zg-1if">
+                                <rect key="frame" x="20" y="20" width="112" height="42"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyh-NR-ril">
+                                <rect key="frame" x="29" y="621" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.18919816610000001" green="0.57586914300000003" blue="0.59214568140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="trash" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteSection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rxa-xD-C1M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YaE-Rt-n6f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="2zU-5i-ysm"/>
+                            <constraint firstItem="o9c-sr-eTF" firstAttribute="centerY" secondItem="fLm-9S-P7v" secondAttribute="centerY" id="5EW-5k-zp5"/>
+                            <constraint firstItem="fLm-9S-P7v" firstAttribute="leading" secondItem="o9c-sr-eTF" secondAttribute="trailing" constant="80.5" id="68o-y7-gOL"/>
+                            <constraint firstItem="PBZ-Zg-1if" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8k7-e9-WFl"/>
+                            <constraint firstItem="Wqt-No-xkP" firstAttribute="bottom" secondItem="PBZ-Zg-1if" secondAttribute="bottom" id="Fdt-W4-53b"/>
+                            <constraint firstItem="o9c-sr-eTF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="HCf-Ou-938"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YaE-Rt-n6f" secondAttribute="trailing" constant="20" id="MaQ-gC-pZe"/>
+                            <constraint firstItem="Gci-0P-gQV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OD0-Er-pcR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YaE-Rt-n6f" secondAttribute="bottom" constant="20" id="QIH-gu-MrR"/>
+                            <constraint firstItem="fLm-9S-P7v" firstAttribute="top" secondItem="Gci-0P-gQV" secondAttribute="bottom" constant="8" id="b5W-uL-bwX"/>
+                            <constraint firstItem="fLm-9S-P7v" firstAttribute="trailing" secondItem="Gci-0P-gQV" secondAttribute="trailing" id="c3c-PV-pHf"/>
+                            <constraint firstItem="Gci-0P-gQV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="egJ-6f-aOx"/>
+                            <constraint firstItem="o9c-sr-eTF" firstAttribute="leading" secondItem="Gci-0P-gQV" secondAttribute="leading" id="hQx-be-h8u"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gci-0P-gQV" secondAttribute="trailing" constant="20" id="jAY-lP-TPg"/>
+                            <constraint firstItem="Wqt-No-xkP" firstAttribute="height" secondItem="fLm-9S-P7v" secondAttribute="height" id="pet-ch-Pzo"/>
+                            <constraint firstItem="fLm-9S-P7v" firstAttribute="leading" secondItem="Wqt-No-xkP" secondAttribute="leading" id="ppY-55-QMR"/>
+                            <constraint firstItem="o9c-sr-eTF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rRj-mm-QaA"/>
+                            <constraint firstItem="o9c-sr-eTF" firstAttribute="leading" secondItem="YaE-Rt-n6f" secondAttribute="leading" id="sdg-eE-hXP"/>
+                            <constraint firstItem="o9c-sr-eTF" firstAttribute="top" secondItem="Gci-0P-gQV" secondAttribute="bottom" constant="12" id="veg-Gs-PVD"/>
+                            <constraint firstItem="Wqt-No-xkP" firstAttribute="trailing" secondItem="Gci-0P-gQV" secondAttribute="trailing" id="wFo-z3-nok"/>
+                            <constraint firstItem="YaE-Rt-n6f" firstAttribute="top" secondItem="o9c-sr-eTF" secondAttribute="bottom" constant="24" id="wK0-lu-LDd"/>
+                            <constraint firstItem="PBZ-Zg-1if" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="zaU-xV-YrP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wgv-Ds-Ins"/>
+                    <connections>
+                        <outlet property="addReminderButtonOutlet" destination="Wqt-No-xkP" id="3Cn-Zl-r40"/>
+                        <outlet property="addSectionButton" destination="fLm-9S-P7v" id="Nh4-cv-EIz"/>
+                        <outlet property="collectionView" destination="YaE-Rt-n6f" id="c69-o2-1m7"/>
+                        <outlet property="deleteButton" destination="tyh-NR-ril" id="Zd2-bw-1UU"/>
+                        <outlet property="todayTableView" destination="Gci-0P-gQV" id="ccM-FC-fVg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.2" y="137.18140929535232"/>
+        </scene>
+        <!--Add Task View Controller-->
+        <scene sceneID="eWq-uZ-48b">
+            <objects>
+                <viewController id="n7b-d9-GfB" customClass="AddTaskViewController" customModule="Dont_Forget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pI5-Ni-RLh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xBv-4f-psc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTM-xB-sfP">
+                                        <rect key="frame" x="8" y="20" width="48" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="arrow.left" catalog="system"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ib-v3-1mB">
+                                        <rect key="frame" x="8" y="67" width="331" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="36"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kb-Mk-JhV">
+                                        <rect key="frame" x="20" y="131" width="36" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9I-K0-jVh">
+                                        <rect key="frame" x="20" y="161" width="319" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ogc-HW-V3A">
+                                        <rect key="frame" x="20" y="233" width="237" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBl-xs-zAA">
+                                        <rect key="frame" x="265" y="217" width="74" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="calendar" catalog="system"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2L-GM-vXo">
+                                        <rect key="frame" x="20" y="203" width="38" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.97898942229999997" green="0.74494284389999998" blue="0.48750638959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't Forget To..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqF-1l-3fZ">
+                                <rect key="frame" x="16" y="332" width="343" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1rc-30-PJR">
+                                <rect key="frame" x="16" y="355" width="343" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-3b-qBs">
+                                <rect key="frame" x="0.0" y="507" width="375" height="160"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0RY-C0-dKD">
+                                        <rect key="frame" x="8" y="8" width="359" height="97"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hcw-UO-75m">
+                                            <size key="itemSize" width="359" height="38"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sectionCell" id="YsR-kI-eYC" customClass="SelectSectionCollectionViewCell" customModule="Dont_Forget" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="w99-NP-UJW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFH-j5-w03">
+                                                            <rect key="frame" x="0.0" y="0.0" width="359" height="38"/>
+                                                            <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="iFH-j5-w03" secondAttribute="trailing" id="QN4-HY-oWV"/>
+                                                        <constraint firstAttribute="bottom" secondItem="iFH-j5-w03" secondAttribute="bottom" id="aRg-g7-dZT"/>
+                                                        <constraint firstItem="iFH-j5-w03" firstAttribute="top" secondItem="w99-NP-UJW" secondAttribute="top" id="bGq-Qv-6uU"/>
+                                                        <constraint firstItem="iFH-j5-w03" firstAttribute="leading" secondItem="w99-NP-UJW" secondAttribute="leading" id="bQQ-co-f85"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="359" height="38"/>
+                                                <connections>
+                                                    <outlet property="sectionNameLabel" destination="iFH-j5-w03" id="NVS-92-Jov"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMS-8q-o3p">
+                                        <rect key="frame" x="8" y="113" width="350" height="30"/>
+                                        <color key="backgroundColor" red="0.97898942229999997" green="0.74494284389999998" blue="0.48750638959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="MyBlue"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OMS-8q-o3p" secondAttribute="trailing" constant="20" id="BdD-lY-4b1"/>
+                                    <constraint firstAttribute="bottom" secondItem="OMS-8q-o3p" secondAttribute="bottom" constant="10" id="dUJ-nF-lc4"/>
+                                    <constraint firstItem="OMS-8q-o3p" firstAttribute="top" secondItem="0RY-C0-dKD" secondAttribute="bottom" constant="10" id="pMI-ON-kJv"/>
+                                    <constraint firstItem="OMS-8q-o3p" firstAttribute="leading" secondItem="TTh-3b-qBs" secondAttribute="leading" constant="20" id="sLq-Yh-SAT"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VL9-2B-c9e">
+                                <rect key="frame" x="16" y="364" width="343" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add to section..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kli-VW-Bic">
+                                <rect key="frame" x="130" y="479" width="114" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="xdV-Hm-nCW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0VP-ti-auF"/>
+                    <connections>
+                        <outlet property="bottomView" destination="TTh-3b-qBs" id="1jY-Qc-oHB"/>
+                        <outlet property="calendarButton" destination="EBl-xs-zAA" id="Vdw-4i-V52"/>
+                        <outlet property="collectionView" destination="0RY-C0-dKD" id="jOM-Rb-vbw"/>
+                        <outlet property="dateTF" destination="Ogc-HW-V3A" id="ycW-kv-GEq"/>
+                        <outlet property="textView" destination="VL9-2B-c9e" id="hnR-IV-wRj"/>
+                        <outlet property="titleTF" destination="j9I-K0-jVh" id="XVn-hq-ZEH"/>
+                        <outlet property="topView" destination="xBv-4f-psc" id="lmS-CU-dkQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZtZ-k0-MHA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1768.8" y="137.18140929535232"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4nt-0M-UiO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="upB-Pu-htX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e5k-xA-fdf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WDO-cz-p7K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DGu-hW-khE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <namedColor name="MyBlue">
+            <color red="0.42500001192092896" green="0.52899998426437378" blue="0.86699998378753662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
