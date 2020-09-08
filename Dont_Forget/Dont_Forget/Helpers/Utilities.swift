@@ -8,6 +8,16 @@
 
 import UIKit
 
+func randomColors() -> UIColor {
+    let myColors: [String] = [
+         "MyOrange", "MyPink", "MyBlue", "MyTeal"
+    ]
+    let randomColor = myColors.randomElement()!
+    guard let uiRandomColor = UIColor(named: randomColor) else { return UIColor(named: "BackgroundColor")!}
+
+    return uiRandomColor
+}
+
 extension UITextField {
     func addBottomBorder() {
         let bottomLine = CALayer()
@@ -18,6 +28,25 @@ extension UITextField {
     }
 }
 extension UIView {
+    
+    /// Fade in a view with a duration
+    ///
+    /// Parameter duration: custom animation duration
+    func fadeIn(withDuration duration: TimeInterval = 1.0) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 1.0
+        })
+    }
+
+    /// Fade out a view with a duration
+    ///
+    /// - Parameter duration: custom animation duration
+    func fadeOut(withDuration duration: TimeInterval = 1.0) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 0.0
+        })
+    }
+
     
     enum ViewSide {
         case left, right, bottom, top
@@ -53,9 +82,31 @@ extension UIView {
         }
         layer.addSublayer(border)
     }
+    
+    func setAnchorPoint(_ point: CGPoint) {
+        var newPoint = CGPoint(x: bounds.size.width * point.x, y: bounds.size.height * point.y)
+        var oldPoint = CGPoint(x: bounds.size.width * layer.anchorPoint.x, y: bounds.size.height * layer.anchorPoint.y);
+
+        newPoint = newPoint.applying(transform)
+        oldPoint = oldPoint.applying(transform)
+
+        var position = layer.position
+
+        position.x -= oldPoint.x
+        position.x += newPoint.x
+
+        position.y -= oldPoint.y
+        position.y += newPoint.y
+
+        layer.position = position
+        layer.anchorPoint = point
+    }
 }
 
 class Utilities {
+    
+    
+    
     
     
     static func styleTextField(_ textfield: UITextField) {
@@ -73,7 +124,7 @@ class Utilities {
     
     static func styleHollowButton(_ button: UIButton) {
         
-        button.layer.cornerRadius = 12
+        button.layer.cornerRadius = 15
         
     }
     

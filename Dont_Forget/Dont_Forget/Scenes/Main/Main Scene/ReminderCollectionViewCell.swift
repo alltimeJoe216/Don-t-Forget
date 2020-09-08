@@ -14,20 +14,20 @@ class ReminderFolderCollectionViewCell: UICollectionViewCell {
     @IBOutlet var sectionNameLabel: UILabel!
     //MARK: - Properties
     
-    var isInEditingMode: Bool = false {
-        didSet {
-            checkmarkLabel.isHidden = !isInEditingMode
-        }
-    }
-
-    // 2
-    override var isSelected: Bool {
-        didSet {
-            if isInEditingMode {
-                checkmarkLabel.text = isSelected ? "✓" : ""
-            }
-        }
-    }
+//    var isInEditingMode: Bool = false {
+//        didSet {
+//            checkmarkLabel.isHidden = !isInEditingMode
+//        }
+//    }
+//
+//    // 2
+//    override var isSelected: Bool {
+//        didSet {
+//            if isInEditingMode {
+//                checkmarkLabel.text = isSelected ? "✓" : ""
+//            }
+//        }
+//    }
 
     
     static var reuseIdentifier: String = "reminderFolderCell"

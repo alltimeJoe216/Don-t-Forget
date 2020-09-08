@@ -12,6 +12,12 @@
 		A8D689A6EC8AFF87A12DCDE3 /* Pods_Dont_Forget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 980687B8A07F7F421F83E3F9 /* Pods_Dont_Forget.framework */; };
 		BB48D51A2503DFC2008A457E /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB48D5192503DFC2008A457E /* Auth.storyboard */; };
 		BB48D5222503F798008A457E /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB48D5212503F798008A457E /* Utilities.swift */; };
+		BB4A86B0250735150004BD21 /* Nexa Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A86AE250735130004BD21 /* Nexa Bold.otf */; };
+		BB4A86B1250735150004BD21 /* Nexa Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A86AF250735150004BD21 /* Nexa Light.otf */; };
+		BB4A86B62507364B0004BD21 /* PlayfairDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A86B2250736440004BD21 /* PlayfairDisplay-Medium.ttf */; };
+		BB4A86B72507364B0004BD21 /* PlayfairDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A86B3250736460004BD21 /* PlayfairDisplay-SemiBold.ttf */; };
+		BB4A86B82507364B0004BD21 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A86B4250736480004BD21 /* PlayfairDisplay-Bold.ttf */; };
+		BB4A86B92507364B0004BD21 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A86B52507364A0004BD21 /* PlayfairDisplay-Regular.ttf */; };
 		BB55EE402505597F00D0BD55 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB55EE3F2505597F00D0BD55 /* AddTaskViewController.swift */; };
 		BB6BD64125040BF500D0D19C /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BD64025040BF500D0D19C /* OnboardViewController.swift */; };
 		BB702A642505701800115EDA /* FolderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A632505701800115EDA /* FolderDetailViewController.swift */; };
@@ -60,6 +66,12 @@
 		AE5B4B6E307C7DB1B33C10B9 /* Pods-Dont_Forget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dont_Forget.release.xcconfig"; path = "Target Support Files/Pods-Dont_Forget/Pods-Dont_Forget.release.xcconfig"; sourceTree = "<group>"; };
 		BB48D5192503DFC2008A457E /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		BB48D5212503F798008A457E /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		BB4A86AE250735130004BD21 /* Nexa Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Bold.otf"; sourceTree = "<group>"; };
+		BB4A86AF250735150004BD21 /* Nexa Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Light.otf"; sourceTree = "<group>"; };
+		BB4A86B2250736440004BD21 /* PlayfairDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		BB4A86B3250736460004BD21 /* PlayfairDisplay-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
+		BB4A86B4250736480004BD21 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		BB4A86B52507364A0004BD21 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		BB55EE3F2505597F00D0BD55 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		BB6BD64025040BF500D0D19C /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
 		BB702A632505701800115EDA /* FolderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDetailViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +137,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BB292E3B25071E5900AE9D3E /* Main Scene */ = {
+			isa = PBXGroup;
+			children = (
+				BBEE911B2504396100E0A904 /* HomeViewController.swift */,
+				BB702A672505893300115EDA /* ReminderCollectionViewCell.swift */,
+			);
+			path = "Main Scene";
+			sourceTree = "<group>";
+		};
+		BB292E3C25071E8400AE9D3E /* Add Task Scene */ = {
+			isa = PBXGroup;
+			children = (
+				BB55EE3F2505597F00D0BD55 /* AddTaskViewController.swift */,
+				BB702A692505E91400115EDA /* SelectSectionCollectionViewCell.swift */,
+			);
+			path = "Add Task Scene";
+			sourceTree = "<group>";
+		};
+		BB292E3D25071E9000AE9D3E /* Task Detail  */ = {
+			isa = PBXGroup;
+			children = (
+				BB702A632505701800115EDA /* FolderDetailViewController.swift */,
+				BB702A652505741A00115EDA /* FolderDetailCollectionViewCell.swift */,
+			);
+			path = "Task Detail ";
+			sourceTree = "<group>";
+		};
 		BB48D51B2503DFF5008A457E /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +218,12 @@
 			children = (
 				BBE8F36B2503D917005AA922 /* GoogleService-Info.plist */,
 				BBE8F3472503D8B7005AA922 /* Info.plist */,
+				BB4A86AE250735130004BD21 /* Nexa Bold.otf */,
+				BB4A86B4250736480004BD21 /* PlayfairDisplay-Bold.ttf */,
+				BB4A86B2250736440004BD21 /* PlayfairDisplay-Medium.ttf */,
+				BB4A86B52507364A0004BD21 /* PlayfairDisplay-Regular.ttf */,
+				BB4A86B3250736460004BD21 /* PlayfairDisplay-SemiBold.ttf */,
+				BB4A86AF250735150004BD21 /* Nexa Light.otf */,
 				BBE8F36A2503D8E6005AA922 /* App Resources */,
 				BB48D5202503F78B008A457E /* Helpers */,
 				BBE8F3692503D8CE005AA922 /* Scenes */,
@@ -229,12 +274,9 @@
 			isa = PBXGroup;
 			children = (
 				BBE8F33C2503D8B7005AA922 /* Main.storyboard */,
-				BBEE911B2504396100E0A904 /* HomeViewController.swift */,
-				BB55EE3F2505597F00D0BD55 /* AddTaskViewController.swift */,
-				BB702A632505701800115EDA /* FolderDetailViewController.swift */,
-				BB702A652505741A00115EDA /* FolderDetailCollectionViewCell.swift */,
-				BB702A672505893300115EDA /* ReminderCollectionViewCell.swift */,
-				BB702A692505E91400115EDA /* SelectSectionCollectionViewCell.swift */,
+				BB292E3B25071E5900AE9D3E /* Main Scene */,
+				BB292E3C25071E8400AE9D3E /* Add Task Scene */,
+				BB292E3D25071E9000AE9D3E /* Task Detail  */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -362,10 +404,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBE8F3462503D8B7005AA922 /* LaunchScreen.storyboard in Resources */,
+				BB4A86B0250735150004BD21 /* Nexa Bold.otf in Resources */,
+				BB4A86B62507364B0004BD21 /* PlayfairDisplay-Medium.ttf in Resources */,
 				BBE8F3432503D8B7005AA922 /* Assets.xcassets in Resources */,
 				BB48D51A2503DFC2008A457E /* Auth.storyboard in Resources */,
 				BBE8F33E2503D8B7005AA922 /* Main.storyboard in Resources */,
 				BBE8F36C2503D917005AA922 /* GoogleService-Info.plist in Resources */,
+				BB4A86B92507364B0004BD21 /* PlayfairDisplay-Regular.ttf in Resources */,
+				BB4A86B1250735150004BD21 /* Nexa Light.otf in Resources */,
+				BB4A86B82507364B0004BD21 /* PlayfairDisplay-Bold.ttf in Resources */,
+				BB4A86B72507364B0004BD21 /* PlayfairDisplay-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
