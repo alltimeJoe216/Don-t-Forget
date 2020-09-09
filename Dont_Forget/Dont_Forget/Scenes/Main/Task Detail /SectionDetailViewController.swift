@@ -8,98 +8,63 @@
 
 import UIKit
 
+extension SectionDetailViewController: ReminderDelegate {
+    
+    func saveNewNote(title: String, date: Date, text: String) {
+        
+        let newNote = CoreDataManager.shared.createNewNote(title: title, date: date, bodyText: text, reminderFolder: self.folderData)
+        
+        reminders.append(newNote)
+        filteredReminders.append(newNote)
+        
+        self.tableView.insertRows(at: [IndexPath(row: reminders.count - 1, section: 0)], with: .fade)
+    }
+}
+
 class SectionDetailViewController: UIViewController {
 
-    @IBOutlet var noteLabel: UILabel!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var sectionNameLabel: UILabel!
+
+    //MARK: -Properties
+    
+    var reminderFolders: [ReminderFolder] = []
+    fileprivate var reminders:[Reminder] = []
+    fileprivate var filteredReminders:[Reminder] = []
+    
+    var folderData: ReminderFolder! {
+        didSet {
+            reminders = CoreDataManager.shared.fetchNotes(from: folderData)
+            filteredReminders = reminders
+        }
+    }
     var reminderCell: String = "reminderCell"
-    @IBOutlet var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        collectionView.register(FolderDetailCollectionViewCell.self, forCellWithReuseIdentifier: self.reminderCell)
+        tableView.reloadData()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    //MARK: -IBactions
     
-    func configureLayout() {
-        collectionView.collectionViewLayout = createTwoRowsNestedGroupLayout()
+    @IBAction func doneButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+        
+    }
+}
+
+extension SectionDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.filteredReminders.count
     }
     
-    func createOneRowNestedGroupLayout() -> UICollectionViewLayout {
-        //2
-        let leadingItem = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                               heightDimension: .fractionalHeight(1.0)))
-        leadingItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-
-        //3
-        let trailingItem = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.7)))
-        trailingItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-
-        //4
-        let trailingGroup = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                               heightDimension: .fractionalHeight(1.0)),
-            subitem: trailingItem, count: 2)
-
-        //5
-        let nestedGroup = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.5)),
-            subitems: [leadingItem, trailingGroup])
-
-        //6
-        let section = NSCollectionLayoutSection(group: nestedGroup)
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: reminderCell, for: indexPath) as! SectionDetailTableViewCell
+        let reminderForRow = self.filteredReminders[indexPath.row]
+        cell.reminderData =  reminderForRow
+        return cell
     }
-
-    func createTwoRowsNestedGroupLayout() -> UICollectionViewLayout {
-        //2
-        let leadingItem = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                               heightDimension: .fractionalHeight(1.0)))
-        leadingItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
-
-        let trailingItem = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.5)))
-        trailingItem.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 3, bottom: 3, trailing: 3)
-        let trailingGroup = NSCollectionLayoutGroup.vertical(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
-                                               heightDimension: .fractionalHeight(1.0)),
-            subitem: trailingItem, count: 2)
-
-        let topNestedGroup = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.5)),
-            subitems: [leadingItem, trailingGroup])
-
-        //3
-        let bottomNestedGroup = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.5)),
-            subitems: [trailingGroup, leadingItem])
-
-        //4
-        let nestedGroup = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                                                              heightDimension: .fractionalHeight(0.5)),
-                                                           subitems: [topNestedGroup, bottomNestedGroup])
-        nestedGroup.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0)
-        let section = NSCollectionLayoutSection(group: nestedGroup)
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
-    }
-
+    
+    
 }

@@ -10,6 +10,15 @@ import UIKit
 
 class SectionDetailTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet var reminderTitle: UILabel!
+    
+    var reminderData: Reminder! {
+        didSet {
+            reminderTitle.text = reminderData.title
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

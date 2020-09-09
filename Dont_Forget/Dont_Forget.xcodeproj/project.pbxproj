@@ -19,9 +19,9 @@
 		BB4A86B82507364B0004BD21 /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A86B4250736480004BD21 /* PlayfairDisplay-Bold.ttf */; };
 		BB4A86B92507364B0004BD21 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4A86B52507364A0004BD21 /* PlayfairDisplay-Regular.ttf */; };
 		BB55EE402505597F00D0BD55 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB55EE3F2505597F00D0BD55 /* AddTaskViewController.swift */; };
+		BB5BAA3A250877BC009F62CC /* SectionDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5BAA39250877BC009F62CC /* SectionDetailTableViewCell.swift */; };
 		BB6BD64125040BF500D0D19C /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BD64025040BF500D0D19C /* OnboardViewController.swift */; };
-		BB702A642505701800115EDA /* FolderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A632505701800115EDA /* FolderDetailViewController.swift */; };
-		BB702A662505741A00115EDA /* FolderDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A652505741A00115EDA /* FolderDetailCollectionViewCell.swift */; };
+		BB702A642505701800115EDA /* SectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A632505701800115EDA /* SectionDetailViewController.swift */; };
 		BB702A682505893300115EDA /* ReminderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A672505893300115EDA /* ReminderCollectionViewCell.swift */; };
 		BB702A6A2505E91400115EDA /* SelectSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A692505E91400115EDA /* SelectSectionCollectionViewCell.swift */; };
 		BB702A6C2505F6D400115EDA /* HomePageCVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A6B2505F6D400115EDA /* HomePageCVFlowLayout.swift */; };
@@ -73,9 +73,9 @@
 		BB4A86B4250736480004BD21 /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		BB4A86B52507364A0004BD21 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		BB55EE3F2505597F00D0BD55 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		BB5BAA39250877BC009F62CC /* SectionDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailTableViewCell.swift; sourceTree = "<group>"; };
 		BB6BD64025040BF500D0D19C /* OnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardViewController.swift; sourceTree = "<group>"; };
-		BB702A632505701800115EDA /* FolderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDetailViewController.swift; sourceTree = "<group>"; };
-		BB702A652505741A00115EDA /* FolderDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		BB702A632505701800115EDA /* SectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailViewController.swift; sourceTree = "<group>"; };
 		BB702A672505893300115EDA /* ReminderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB702A692505E91400115EDA /* SelectSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB702A6B2505F6D400115EDA /* HomePageCVFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCVFlowLayout.swift; sourceTree = "<group>"; };
@@ -158,8 +158,8 @@
 		BB292E3D25071E9000AE9D3E /* Task Detail  */ = {
 			isa = PBXGroup;
 			children = (
-				BB702A632505701800115EDA /* FolderDetailViewController.swift */,
-				BB702A652505741A00115EDA /* FolderDetailCollectionViewCell.swift */,
+				BB702A632505701800115EDA /* SectionDetailViewController.swift */,
+				BB5BAA39250877BC009F62CC /* SectionDetailTableViewCell.swift */,
 			);
 			path = "Task Detail ";
 			sourceTree = "<group>";
@@ -543,12 +543,12 @@
 			files = (
 				BBE8F3372503D8B7005AA922 /* AppDelegate.swift in Sources */,
 				BB55EE402505597F00D0BD55 /* AddTaskViewController.swift in Sources */,
+				BB5BAA3A250877BC009F62CC /* SectionDetailTableViewCell.swift in Sources */,
 				BB6BD64125040BF500D0D19C /* OnboardViewController.swift in Sources */,
 				BB702A6C2505F6D400115EDA /* HomePageCVFlowLayout.swift in Sources */,
 				BBE8F3392503D8B7005AA922 /* SceneDelegate.swift in Sources */,
-				BB702A642505701800115EDA /* FolderDetailViewController.swift in Sources */,
+				BB702A642505701800115EDA /* SectionDetailViewController.swift in Sources */,
 				BB48D5222503F798008A457E /* Utilities.swift in Sources */,
-				BB702A662505741A00115EDA /* FolderDetailCollectionViewCell.swift in Sources */,
 				BBEE911C2504396100E0A904 /* HomeViewController.swift in Sources */,
 				BB702A6A2505E91400115EDA /* SelectSectionCollectionViewCell.swift in Sources */,
 				BB74F26C2505238A00F7809C /* CoreDataManager.swift in Sources */,

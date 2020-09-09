@@ -9,10 +9,12 @@
 import UIKit
 
 
-
-
-
-@IBDesignable
+extension HomeViewController: UpdateSectionCount {
+    func updateSectionCount(for reminderFolderName: ReminderFolder, at indexPath: IndexPath) {
+        self.reminderFolders[indexPath.row] = reminderFolderName
+        self.collectionView.reloadData()
+    }
+}
 class HomeViewController: UIViewController {
     
     static let shared = HomeViewController()
@@ -30,7 +32,16 @@ class HomeViewController: UIViewController {
     
     //MARK: - Properties
     var reminderFolders: [ReminderFolder] = []
-    var dataSource: UICollectionViewDiffableDataSource<Section, Int>! = nil
+    fileprivate var reminders:[Reminder] = []
+    fileprivate var filteredReminders:[Reminder] = []
+    
+    var folderData: ReminderFolder! {
+        didSet {
+            reminders = CoreDataManager.shared.fetchNotes(from: folderData)
+            filteredReminders = reminders
+        }
+    }
+    
     
     //MARK: - Private Properties
     fileprivate var reminderCell: String = "reminderCell" // For CV Cell
@@ -144,45 +155,14 @@ class HomeViewController: UIViewController {
         return image
     }
     
-    fileprivate func configureDataSource() {
-    dataSource = UICollectionViewDiffableDataSource<Section, Int>(collectionView: collectionView) {
-        (collectionView: UICollectionView, indexPath: IndexPath, identifier: Int) -> UICollectionViewCell? in
-
-        // Get a cell of the desired kind.
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: self.reminderCell,
-            for: indexPath) as? ReminderFolderCollectionViewCell
-            else { fatalError("Cannot create new cell") }
-
-        // Cell view properties
-        cell.sectionNameLabel.text = "\(identifier)"
-        cell.layer.borderWidth = 2.90
-        cell.contentView.layer.borderColor = UIColor.white.cgColor
-        cell.contentView.layer.masksToBounds = true
-//        cell.layer.shadowColor = self.randomColors().cgColor
-        cell.layer.shadowOffset = CGSize(width: 10, height: 5)
-        cell.layer.shadowRadius = 15.0
-        cell.layer.shadowOpacity = 2.0
-        cell.layer.cornerRadius = 15.0
-//        cell.backgroundColor = self.randomColors()
-
-        return cell
-    }
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(Array(0..<30))
-        dataSource.apply(snapshot, animatingDifferences: false)
-    }
     
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
     }
-    */
+    
     
     func configureLayout() {
         collectionView.collectionViewLayout = createOneRowNestedGroupLayout()
@@ -217,15 +197,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//
-//    //MARK: - TableView
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
+
 
     //MARK: - CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -240,21 +212,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reminderFolderCell", for: indexPath) as! ReminderFolderCollectionViewCell
         let folderForRow = reminderFolders[indexPath.row]
         cell.folderData = folderForRow
-//        cell.layer.borderColor = UIColor.black.cgColor
-//        cell.layer.cornerRadius = 15
-//        cell.layer.borderWidth = 0
-//        cell.layer.shadowColor = UIColor.black.cgColor
-//        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        cell.layer.shadowRadius = 5.0
-//        cell.layer.shadowOpacity = 1
-//        cell.layer.masksToBounds = false
-        
         cell.contentView.layer.cornerRadius = 10
         cell.contentView.layer.borderWidth = 1.0
-
         cell.contentView.layer.borderColor = UIColor.clear.cgColor
         cell.contentView.layer.masksToBounds = true
-
         cell.layer.shadowColor = randomColors().cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         cell.layer.shadowRadius = 2.0

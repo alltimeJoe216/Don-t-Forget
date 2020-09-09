@@ -12,6 +12,7 @@ class ReminderFolderCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var countLabel: UILabel!
     @IBOutlet var sectionNameLabel: UILabel!
+    
     //MARK: - Properties
     
 //    var isInEditingMode: Bool = false {
