@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FolderDetailViewController: UIViewController {
+class SectionDetailViewController: UIViewController {
 
     @IBOutlet var noteLabel: UILabel!
     var reminderCell: String = "reminderCell"
