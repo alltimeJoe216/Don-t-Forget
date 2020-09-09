@@ -79,7 +79,9 @@ class HomeViewController: UIViewController {
         configureLayout()
         //Stylizing
         Utilities.styleHollowButton(addSectionButton)
-        todayInfoView.layer.cornerRadius = 15
+        todayInfoView.layer.cornerRadius = 8
+        todayInfoView.layer.borderColor = randomColors().cgColor
+        todayInfoView.layer.borderWidth = 0.5
         reminderFolders = CoreDataManager.shared.fetchReminderFolders()
     }
     
@@ -173,13 +175,13 @@ class HomeViewController: UIViewController {
         let leadingItem = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
                                                heightDimension: .fractionalHeight(1.0)))
-        leadingItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        leadingItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
 
         //3
         let trailingItem = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                heightDimension: .fractionalHeight(0.7)))
-        trailingItem.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        trailingItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
 
 
         //5
@@ -212,13 +214,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reminderFolderCell", for: indexPath) as! ReminderFolderCollectionViewCell
         let folderForRow = reminderFolders[indexPath.row]
         cell.folderData = folderForRow
-        cell.contentView.layer.cornerRadius = 10
+        cell.contentView.layer.cornerRadius = 8
         cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor
+        cell.contentView.layer.borderColor = randomColors().cgColor
         cell.contentView.layer.masksToBounds = true
-        cell.layer.shadowColor = randomColors().cgColor
+        cell.layer.shadowColor = UIColor.white.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
         cell.layer.shadowRadius = 2.0
+        cell.layer.borderColor = randomColors().cgColor
         cell.layer.shadowOpacity = 1.0
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath

@@ -27,9 +27,10 @@ class AddTaskViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     
     //MARK: - Properties
-    var reminderFolder: ReminderFolder?
-    var delegate2: UpdateSectionCount?
-    var indexPath: IndexPath?
+    
+    let folderData = CoreDataManager.shared.fetchReminderFolders()
+    var updateCountDelegate: UpdateSectionCount?
+    var myIndexPath: IndexPath?
     var delegate: ReminderDelegate?
     
     var reminderData: Reminder! {
@@ -45,7 +46,7 @@ class AddTaskViewController: UIViewController {
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configureLayout()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -65,15 +66,17 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func createButtonTapped(_ sender: UIButton) {
- 
+        
         guard let title = titleTF.text,
             let bodyText = textView.text,
             let date = df.date(from: dateTF.text ?? "")
             
             else { return }
         
-
-        CoreDataManager.shared.createNewNote(title: title, date: date, bodyText: bodyText, reminderFolder: reminderFolder!)
+        guard let collectionView = self.collectionView,
+            let indexPath = collectionView.indexPathsForSelectedItems?.first,
+            let cell = collectionView.cellForItem(at: indexPath) as? SelectSectionCollectionViewCell,
+            let reminderSection = cell.folderData else { return }
         
     }
     
@@ -94,47 +97,75 @@ class AddTaskViewController: UIViewController {
         
     }
     
+    func configureLayout() {
+        collectionView.collectionViewLayout = createOneRowNestedGroupLayout()
+    }
+    
+    func createOneRowNestedGroupLayout() -> UICollectionViewLayout {
+        //2
+        let leadingItem = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5),
+                                               heightDimension: .fractionalHeight(1.0)))
+        leadingItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        
+        //3
+        let trailingItem = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalHeight(0.7)))
+        trailingItem.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        
+        
+        //5
+        let nestedGroup = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalHeight(0.5)),
+            subitems: [leadingItem])
+        
+        //6
+        let section = NSCollectionLayoutSection(group: nestedGroup)
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     
-
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
+    
 }
 
 extension AddTaskViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        CoreDataManager.shared.fetchReminderFolders().count
+        folderData.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        let sectionData = CoreDataManager.shared.fetchReminderFolders()
-        
-        if let delegate = delegate2 
 
     }
-
-
-
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sectionCell", for: indexPath) as! SelectSectionCollectionViewCell
     
-    let sectionData = CoreDataManager.shared.fetchReminderFolders()
-    cell.sectionNameLabel.text = sectionData[indexPath.item].title
-    cell.layer.borderColor = UIColor.black.cgColor
-    cell.layer.cornerRadius = 2
-    cell.layer.borderWidth = 0.5
     
-    return cell
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sectionCell", for: indexPath) as! SelectSectionCollectionViewCell
+        
+        let sectionData = folderData
+        cell.sectionNameLabel.text = sectionData[indexPath.item].title
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.cornerRadius = 2
+        cell.layer.borderWidth = 0.5
+        
+        return cell
+    }
 }
 
-
-
-
+extension AddTaskViewController: UpdateSectionCount {
+    func updateSectionCount(for reminderFolderName: ReminderFolder, at indexPath: IndexPath) {
+    }
+    
+    
 }

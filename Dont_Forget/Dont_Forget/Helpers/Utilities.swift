@@ -56,7 +56,7 @@ extension UIView {
         
         guard let item = item else { return }
         
-        item.layer.cornerRadius = 15
+        item.layer.cornerRadius = 8
         item.layer.shadowColor = UIColor.lightGray.cgColor
         item.layer.shadowOffset = CGSize(width: 2, height: 2)
         item.layer.shadowOpacity = 1.0
@@ -124,7 +124,7 @@ class Utilities {
     
     static func styleHollowButton(_ button: UIButton) {
         
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = 8
         
     }
     
