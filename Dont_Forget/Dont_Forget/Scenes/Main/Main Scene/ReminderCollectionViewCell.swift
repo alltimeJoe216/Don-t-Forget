@@ -10,7 +10,7 @@ import UIKit
 
 class ReminderFolderCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var countLabel: UILabel!
+
     @IBOutlet var sectionNameLabel: UILabel!
     
     //MARK: - Properties
@@ -36,8 +36,6 @@ class ReminderFolderCollectionViewCell: UICollectionViewCell {
     var folderData: ReminderFolder! {
         didSet {
             sectionNameLabel.text = folderData.title
-            let count = CoreDataManager.shared.fetchNotes(from: folderData).count
-            countLabel.text = String("\(count)  ")
         }
     }
 }

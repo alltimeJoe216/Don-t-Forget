@@ -8,13 +8,6 @@
 
 import UIKit
 
-
-extension HomeViewController: UpdateSectionCount {
-    func updateSectionCount(for reminderFolderName: ReminderFolder, at indexPath: IndexPath) {
-        self.reminderFolders[indexPath.row] = reminderFolderName
-        self.collectionView.reloadData()
-    }
-}
 class HomeViewController: UIViewController {
     
     static let shared = HomeViewController()
@@ -33,12 +26,10 @@ class HomeViewController: UIViewController {
     //MARK: - Properties
     var reminderFolders: [ReminderFolder] = []
     fileprivate var reminders:[Reminder] = []
-    fileprivate var filteredReminders:[Reminder] = []
     
     var folderData: ReminderFolder! {
         didSet {
             reminders = CoreDataManager.shared.fetchNotes(from: folderData)
-            filteredReminders = reminders
         }
     }
     
@@ -162,7 +153,15 @@ class HomeViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
+        if let destination = segue.destination as? SectionDetailViewController, let index = collectionView.indexPathsForSelectedItems?.first {
+            destination.reminderFolder = reminderFolders[index.row]
+        }
+        
+        
+        
+       
+        
     }
     
     
@@ -231,27 +230,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if !isEditing {
-            deleteButton.isEnabled = false
-        } else {
-            deleteButton.isEnabled = true
-        }
+     
     }
 
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let selectedItems = collectionView.indexPathsForSelectedItems, selectedItems.count == 0 {
-            deleteButton.isEnabled = false
-        }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

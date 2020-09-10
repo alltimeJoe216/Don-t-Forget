@@ -12,10 +12,6 @@ protocol ReminderDelegate {
     func saveNewNote(title: String, date: Date, text: String)
 }
 
-protocol UpdateSectionCount {
-    func updateSectionCount(for reminderFolderName: ReminderFolder, at indexPath: IndexPath)
-}
-
 class AddTaskViewController: UIViewController {
     
     //MARK: - IBOutlet
@@ -29,8 +25,7 @@ class AddTaskViewController: UIViewController {
     //MARK: - Properties
     
     let folderData = CoreDataManager.shared.fetchReminderFolders()
-    var updateCountDelegate: UpdateSectionCount?
-    var myIndexPath: IndexPath?
+    var reminders: [Reminder] = []
     var delegate: ReminderDelegate?
     
     var reminderData: Reminder! {
@@ -41,6 +36,8 @@ class AddTaskViewController: UIViewController {
             dateTF.text = df.string(from: reminderData.date ?? Date())
         }
     }
+    
+    
     var spacing: CGFloat = 2
     
     //MARK: - View Lifecycle
@@ -65,19 +62,19 @@ class AddTaskViewController: UIViewController {
         }
     }
     
-    @IBAction func createButtonTapped(_ sender: UIButton) {
-        
-        guard let title = titleTF.text,
-            let bodyText = textView.text,
-            let date = df.date(from: dateTF.text ?? "")
-            
-            else { return }
-        
-        guard let collectionView = self.collectionView,
-            let indexPath = collectionView.indexPathsForSelectedItems?.first,
-            let cell = collectionView.cellForItem(at: indexPath) as? SelectSectionCollectionViewCell,
-            let reminderSection = cell.folderData else { return }
-        
+//    @IBAction func createButtonTapped(_ sender: UIButton) {
+//
+//        guard let title = titleTF.text,
+//            let bodyText = textView.text,
+//            let date = df.date(from: dateTF.text ?? "")
+//            else { return }
+//
+//        delegate?.saveNewNote(title: title, date: date, text: bodyText)
+//        dismiss(animated: true, completion: nil)
+//
+//    }
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true)
     }
     
     func setupViews() {
@@ -133,6 +130,7 @@ class AddTaskViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        
     }
     
     
@@ -143,12 +141,6 @@ extension AddTaskViewController: UICollectionViewDataSource, UICollectionViewDel
         folderData.count
         
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-
-    }
-    
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sectionCell", for: indexPath) as! SelectSectionCollectionViewCell
@@ -161,11 +153,24 @@ extension AddTaskViewController: UICollectionViewDataSource, UICollectionViewDel
         
         return cell
     }
-}
-
-extension AddTaskViewController: UpdateSectionCount {
-    func updateSectionCount(for reminderFolderName: ReminderFolder, at indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) {
+            cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 0.4932718873, blue: 0.4739984274, alpha: 1)
+        }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        if let cell = collectionView.cellForItem(at: indexPath) as? SelectSectionCollectionViewCell {
+//            cell.showIcon()
+        
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//        if let cell = collectionView.cellForItem(at: indexPath) as? SelectSectionCollectionViewCell {
+//            cell.hideIcon()
+        }
     
 }
+
+

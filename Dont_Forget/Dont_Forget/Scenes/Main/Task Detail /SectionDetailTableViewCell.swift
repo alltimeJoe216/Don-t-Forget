@@ -10,8 +10,8 @@ import UIKit
 
 class SectionDetailTableViewCell: UITableViewCell {
 
-    
     @IBOutlet var reminderTitle: UILabel!
+    @IBOutlet var completedCircleImage: UIImageView!
     
     var reminderData: Reminder! {
         didSet {
