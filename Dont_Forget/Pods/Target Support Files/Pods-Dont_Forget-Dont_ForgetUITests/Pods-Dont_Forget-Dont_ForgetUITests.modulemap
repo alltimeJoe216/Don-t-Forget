@@ -1,6 +1,0 @@
-framework module Pods_Dont_Forget_Dont_ForgetUITests {
-  umbrella header "Pods-Dont_Forget-Dont_ForgetUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
