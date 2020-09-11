@@ -9,10 +9,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
-    static let shared = HomeViewController()
-//    let dateString =
-
+    // Setup for collection View
     enum Section {
         case main
     }
@@ -26,6 +23,7 @@ class HomeViewController: UIViewController {
     //MARK: - Properties
     var reminderFolders: [ReminderFolder] = []
     fileprivate var reminders:[Reminder] = []
+
     
     var folderData: ReminderFolder! {
         didSet {

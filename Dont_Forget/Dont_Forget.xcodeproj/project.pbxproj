@@ -24,7 +24,6 @@
 		BB702A642505701800115EDA /* SectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A632505701800115EDA /* SectionDetailViewController.swift */; };
 		BB702A682505893300115EDA /* ReminderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A672505893300115EDA /* ReminderCollectionViewCell.swift */; };
 		BB702A6A2505E91400115EDA /* SelectSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A692505E91400115EDA /* SelectSectionCollectionViewCell.swift */; };
-		BB702A6C2505F6D400115EDA /* HomePageCVFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB702A6B2505F6D400115EDA /* HomePageCVFlowLayout.swift */; };
 		BB74F26C2505238A00F7809C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB74F26B2505238A00F7809C /* CoreDataManager.swift */; };
 		BBE8F3372503D8B7005AA922 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE8F3362503D8B7005AA922 /* AppDelegate.swift */; };
 		BBE8F3392503D8B7005AA922 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE8F3382503D8B7005AA922 /* SceneDelegate.swift */; };
@@ -78,7 +77,6 @@
 		BB702A632505701800115EDA /* SectionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDetailViewController.swift; sourceTree = "<group>"; };
 		BB702A672505893300115EDA /* ReminderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB702A692505E91400115EDA /* SelectSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSectionCollectionViewCell.swift; sourceTree = "<group>"; };
-		BB702A6B2505F6D400115EDA /* HomePageCVFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCVFlowLayout.swift; sourceTree = "<group>"; };
 		BB74F26B2505238A00F7809C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		BBE8F3332503D8B7005AA922 /* Dont_Forget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dont_Forget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBE8F3362503D8B7005AA922 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +167,7 @@
 			children = (
 				BB48D5192503DFC2008A457E /* Auth.storyboard */,
 				BB6BD64025040BF500D0D19C /* OnboardViewController.swift */,
+				BB74F26A2505225900F7809C /* Core Data */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -177,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				BB48D5212503F798008A457E /* Utilities.swift */,
-				BB702A6B2505F6D400115EDA /* HomePageCVFlowLayout.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -227,7 +225,6 @@
 				BBE8F36A2503D8E6005AA922 /* App Resources */,
 				BB48D5202503F78B008A457E /* Helpers */,
 				BBE8F3692503D8CE005AA922 /* Scenes */,
-				BB74F26A2505225900F7809C /* Core Data */,
 			);
 			path = Dont_Forget;
 			sourceTree = "<group>";
@@ -545,7 +542,6 @@
 				BB55EE402505597F00D0BD55 /* AddTaskViewController.swift in Sources */,
 				BB5BAA3A250877BC009F62CC /* SectionDetailTableViewCell.swift in Sources */,
 				BB6BD64125040BF500D0D19C /* OnboardViewController.swift in Sources */,
-				BB702A6C2505F6D400115EDA /* HomePageCVFlowLayout.swift in Sources */,
 				BBE8F3392503D8B7005AA922 /* SceneDelegate.swift in Sources */,
 				BB702A642505701800115EDA /* SectionDetailViewController.swift in Sources */,
 				BB48D5222503F798008A457E /* Utilities.swift in Sources */,

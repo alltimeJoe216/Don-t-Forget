@@ -13,9 +13,9 @@ class SectionDetailTableViewCell: UITableViewCell {
     @IBOutlet var reminderTitle: UILabel!
     @IBOutlet var completedCircleImage: UIImageView!
     
-    var reminderData: Reminder! {
+    var reminderData: Reminder? {
         didSet {
-            reminderTitle.text = reminderData.title
+            reminderTitle.text = reminderData?.title
         }
     }
     

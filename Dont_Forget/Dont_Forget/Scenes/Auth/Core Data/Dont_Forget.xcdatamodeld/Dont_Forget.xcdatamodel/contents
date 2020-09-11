@@ -3,7 +3,7 @@
     <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
         <attribute name="bodyText" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String"/>
         <relationship name="reminderFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ReminderFolder" inverseName="reminders" inverseEntity="ReminderFolder"/>
     </entity>
     <entity name="ReminderFolder" representedClassName="ReminderFolder" syncable="YES" codeGenerationType="class">
